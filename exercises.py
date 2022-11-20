@@ -248,10 +248,54 @@ else:
 
 print("Total tax to pay is", tax_payable)
 
-print('------------------ Answer #12 --------------')
+print('------------------ Answer #13 --------------')
 #Exercise 13: Print multiplication table form 1 to 10
 
 for i in range(1, 11):
     for j in range(1, 11):
         print(i * j, end=" ")
     print("\t\t")
+
+print('------------------ Answer #14 --------------')
+#Exercise 14: Print downward Half-Pyramid Pattern with Star (asterisk)
+'''
+* * * * *  
+* * * *  
+* * *  
+* *  
+*'''
+for i in range(6, 0, -1):
+    for j in range(0, i - 1):
+        print("*", end=' ')
+    print(" ")
+
+print('------------------ Answer #15 --------------')
+#Exercise 15: Write a function called exponent(base, exp) that returns an int 
+#value of base raises to the power of exp.
+'''
+case 1
+base = 2
+exponent = 5
+
+2 raises to the power of 5: 32 i.e. (2 *2 * 2 *2 *2 = 32)
+
+case 2 
+base = 5
+exponent = 4
+
+5 raises to the power of 4 is: 625 
+i.e. (5 *5 * 5 *5 = 625)'''
+
+def exponent(base, exp):
+    num = exp
+    result = 1
+    while num > 0:
+        result = result * base
+        num = num - 1
+    print(base, "raises to the power of", exp, "is: ", result)
+
+exponent(5, 4)
+
+print('------------------ Answer #16 --------------')
+#
+
