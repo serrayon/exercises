@@ -202,7 +202,56 @@ res = et - st / 60
 print(f'CPU time for second: {res} seconds')
 
 print('------------------ Answer #11 --------------')
-# 
+#Exercise 11: Write a Program to extract each digit 
+#from an integer in the reverse order
+number = 7536
+print("Given number", number)
+while number > 0:
+    # get the last digit
+    digit = number % 10
+    # remove the last digit and repeat the loop
+    number = number // 10
+    print(digit, end=" ")
 
-    
+print('------------------ Answer #12 --------------')
+#Exercise 12: Calculate income tax for the given 
+#income by adhering to the below rules
+''' Taxable Income	Rate (in %)
+First $10,000	0
+Next $10,000	10
+The remaining	20
+Expected Output:
 
+For example, suppose the taxable income is 45000 the income tax payable is
+
+10000*0% + 10000*10%  + 25000*20% = $6000.'''
+income = 45000
+tax_payable = 0
+print("Given income", income)
+
+if income <= 10000:
+    tax_payable = 0
+elif income <= 20000:
+    # no tax on first 10,000
+    x = income - 10000
+    # 10% tax
+    tax_payable = x * 10 / 100
+else:
+    # first 10,000
+    tax_payable = 0
+
+    # next 10,000 10% tax
+    tax_payable = 10000 * 10 / 100
+
+    # remaining 20%tax
+    tax_payable += (income - 25000) * 20 / 100
+
+print("Total tax to pay is", tax_payable)
+
+print('------------------ Answer #12 --------------')
+#Exercise 13: Print multiplication table form 1 to 10
+
+for i in range(1, 11):
+    for j in range(1, 11):
+        print(i * j, end=" ")
+    print("\t\t")
