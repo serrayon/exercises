@@ -345,3 +345,35 @@ player_list = [Eric, John, Terry]
 #Exercise: Sort this by score using lambda!
 player_list.sort(key = lambda playyer: playyer.score, reverse = True)
 print([player.name for player in player_list])
+
+print('------------------ Answer #20 --------------')
+
+numbers = [1,2,3,4,5,6,7,8,9]
+# give me a list with num squared for each num in numbers
+new_list = []
+for num in numbers:
+    new_list.append(num*num)
+print(new_list)
+
+new_list = [num*num for num in numbers]
+print(new_list)
+# give me a list with num for each num in numbers if num is even 
+new_list = [num for num in numbers if num % 2 == 0]
+print(new_list)
+#lambda version filter returns a filter object must be type cast > list
+new_list = filter(lambda num: num % 2 ==0,numbers)
+print(list(new_list))
+
+print('------------------ Answer #21 --------------')
+
+# I want a (letter, num) pair for each letter in 'spam' and each number in '0123'
+new_list = []
+for letter in 'spam':
+   for num in range(4):
+       new_list.append((letter,num))
+print(new_list)
+#return a tuple then loop above examples worked with list, sets, tuples
+new_list = [(letter,num) for letter in'spam' for num in range(4)]
+print(new_list)
+
+print('------------------ Answer #22 --------------')
