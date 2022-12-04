@@ -305,3 +305,24 @@ list_b = [3,4,5,6,7]
 #write lambda below 
 join_list_no_duplicates1 = lambda list_a,list_b:list(set(list_a + list_b))
 print(join_list_no_duplicates1(list_a,list_b))
+
+print('------------------ Answer #17 --------------')
+#Complete the function so it returns a function
+def create_quad_func(a,b,c):
+    '''return function f(x) = ax^2 + bx + c'''
+    return lambda x: a*x**2 + b*x + c
+f = create_quad_func(2,4,6)
+g = create_quad_func(1,2,3)
+print(f(2))
+print(g(2))
+
+
+print('------------------ Answer #18 --------------')
+#lexicographacly 
+print('Lambdas Exercise')
+
+
+signups = ['MPF104', 'MPF20', 'MPF2', 'MPF17', 'MPF3', 'MPF45']
+print(sorted(signups)) # Lexicographic sort
+#write sorting by integer
+print(sorted(signups,key = lambda id:int(id[3:]))) # Integer sort
