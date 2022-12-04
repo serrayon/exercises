@@ -377,3 +377,98 @@ new_list = [(letter,num) for letter in'spam' for num in range(4)]
 print(new_list)
 
 print('------------------ Answer #22 --------------')
+
+# Dictionary comprehensions
+movies = ["And Now for Something Completely Different","Monty Python and the Holy Grail",
+"Monty Python's Life of Brian","Monty Python Live at the Hollywood Bowl","Monty Python's The Meaning of Life","Monty Python Live (Mostly)"]
+year =[1971,1975,1979,1982,1983,2014]
+names = ['John','Eric','Michael','Graham','Terry','TerryG']
+print(list(zip(movies, year)))
+# give me a dict('movies': year) for each movies, year in zip(movies, year)
+new_dict = dict()
+for movie, yr in zip(movies,year):
+    new_dict[movie] = yr
+print(new_dict)
+
+new_dict = {movie:yr for movie,yr in zip(movies,year) if yr < 1983 and movie.startswith('Monty')}
+print(new_dict)
+n1 =[[name + "s favorite movie was " + movie + " from " + str(yr)] for name,movie,yr in zip(names,movies,year) if yr < 1981 ]
+print(n1)
+
+print('------------------ Answer #23 --------------')
+#generates random number from 0-5 up to a value of 6
+import random
+for i in range(5):
+    print(random.random()*6)
+
+#uniform takes 2 arguments start end
+for i in range(5):
+    print(random.uniform(1,6))
+# random integer not float
+for i in range(5):
+    print(random.randint(1,6))
+
+# add range and it takes one more argument, the steps it takes
+for i in range(5):
+    print(random.randrange(1,100,2))
+
+#with strings 
+friends_list =  ['John', 'Eric', 'Michael', 'Terry', 'Graham']
+print(random.choice(friends_list))
+#with sample there is also a function called choices 
+friends_list =  ['John', 'Eric', 'Michael', 'Terry', 'Graham']
+print(random.sample(friends_list,3))
+#shuffle
+friends_list =  ['John', 'Eric', 'Michael', 'Terry', 'Graham']
+print(random.sample(friends_list,5))
+random.shuffle(friends_list)
+print(friends_list)
+
+print('------------------ Answer #24--------------')
+# letters can be changed to lowercase upercase 
+import random, string
+
+smallcaps = 'abcdefghijklmnopqrstuvwxyz'
+largecaps = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
+digits = '0123456789'
+letters_numbers = string.ascii_letters + string.digits
+print(letters_numbers)
+
+word = ''
+'''
+for i in range(7):
+    word += random.choice(letters_numbers)
+word1 = ''.join(random.sample(letters_numbers,7))
+word = random.choices(letter_numbers, k=7)    
+print(word)
+print(word1)'''
+
+print('------------------ Timeit and performance module --------------')
+#this is BETTER!! 
+import timeit
+
+print('Performance and Timeit module')
+# Experiment with sieve of Eratosthenes
+def test1():
+    [x for x in range(1, 151) if not any([x % y == 0 for y in range(2, x)]) and not x == 1]
+    return(1)
+def test2():
+    [x for x in range(2, 151) if not any([x % y == 0 for y in range(2, x)])]
+def test3():
+    # Initialize a list
+    primes = []
+    for possiblePrime in range(2, 151):
+    # Assume number is prime until shown it is not.
+        isPrime = True
+        for num in range(2, int(possiblePrime ** 0.5) + 1):
+            if possiblePrime % num == 0:
+                isPrime = False
+                break
+        if isPrime:
+            primes.append(possiblePrime)
+    #print(primes)
+    return(1)
+
+print(timeit.timeit('test1()', globals=globals(), number=10))
+print(timeit.timeit('test2()', globals=globals(), number=10))
+print(timeit.timeit('test3()', globals=globals(), number=10))
