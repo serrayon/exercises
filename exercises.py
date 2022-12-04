@@ -42,10 +42,10 @@ try:
 
 # iterate a each character of a string
 # start: 0 to start with first character
-# stop: size-1 because index starts with 0
+# stop: size because index starts with 0
 # step: 2 to get the characters present at even index like 0, 2, 4
     print("Printing only even index chars")
-    for i in range(0, size - 1, 2):
+    for i in range(0, size, 2):
         print("index[", i, "]", word[i])
     
 except EOFError as e:
@@ -468,7 +468,7 @@ def test3():
             primes.append(possiblePrime)
     #print(primes)
     return(1)
-
+#will run 10 times per function and take average
 print(timeit.timeit('test1()', globals=globals(), number=10))
 print(timeit.timeit('test2()', globals=globals(), number=10))
 print(timeit.timeit('test3()', globals=globals(), number=10))
