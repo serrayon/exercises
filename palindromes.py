@@ -37,7 +37,7 @@ def palindromeWhile(string):
     first = 0 
     last = len(string)-1
     
-    while  sting[first] < string[last]:
+    while  string[first] < string[last]:
         if string[first] ==  string[last]:
             first += 1 
             last -= 1 
